@@ -1,15 +1,42 @@
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
 /**
  * Page object model design for the Sign In Page
  * Please use the HomePage class as reference
  */
-public class SignInPage {
+public class SignInPage extends CommonAPI{
 
-    // Define the email address box web element here
+    @FindBy(id = "ap_email")
+    private WebElement EmailBox;
 
-    // Define the password box web element here
+    @FindBy(id = "ap_password")
+    private WebElement PwdBox;
 
-    // Define the sign in button web element here
+    @FindBy(id = "signInSubmit")
+    private WebElement SignInButton;
 
-    // Create a method that signs in using email address and password
+    @FindBy(id = "createAccountSubmit")
+    private WebElement CreateAccountButton;
 
+
+
+
+    public void enterEmail(String text) {
+        this.EmailBox.sendKeys(text);
+    }
+
+    public void enterPwd(String text) {
+        this.PwdBox.sendKeys(text);
+    }
+
+    public void SignIn() {
+        this.SignInButton.click();
+    }
+
+    public void CreateAccount() {
+        this.CreateAccountButton.click();
+    }
 }
+
+
